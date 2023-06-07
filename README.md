@@ -12,7 +12,7 @@ describing your algorithm.
 
 ## Example
 
-timestamp,session_id,page_id
+````timestamp,session_id,page_id
 2023-01-01T00:00:01Z,abc-123,search
 2023-01-01T00:00:39Z,abc-456,detail-2
 2023-01-01T00:02:03Z,abc-123,detail-2
@@ -21,6 +21,7 @@ timestamp,session_id,page_id
 2023-01-01T00:14:01Z,abc-456,detail-1
 2023-01-01T00:14:15Z,abc-456,cart
 2023-01-01T00:21:01Z,abc-123,cart
+ ```
 
 Your code should produce:
 detail-2,detail-1,cart:2
