@@ -12,7 +12,8 @@ describing your algorithm.
 
 ## Example
 
-```timestamp,session_id,page_id
+```
+timestamp,session_id,page_id
 2023-01-01T00:00:01Z,abc-123,search
 2023-01-01T00:00:39Z,abc-456,detail-2
 2023-01-01T00:02:03Z,abc-123,detail-2
@@ -35,14 +36,16 @@ Add support for supplying a sequence length, rather than specifically looking fo
 ## Solution
 1. web traffic is already sorted by time-stamp 
 2. get user-visited pages 
-   ```abc-123: search -> detail-2 -> detail-1 -> cart
+   ```
+   abc-123: search -> detail-2 -> detail-1 -> cart
    abc-456: detail-2 -> detail-1 -> cart
    abc-789: search
    ```
 
 3. 
     1. for each user visited page will generate a sequnce for the required length default length is 3
-    ```abc-123 user sequence is 
+    ```
+       abc-123 user sequence is 
          search,detail-2,detail-1
          detail-2,detail-1,cart
        abc-456 user sequence is
@@ -99,10 +102,14 @@ INFO:root:!--result--
 ## Test-Case 
 
 1. User input file and custom sequence count value pass
+    ```
     input :  resource/default.csv, sequence count 2       
     status : passed
+    ```
 2. Same user session create a repeated sequence that should be ignore
+   ```
    abc-123 user session repeating sequence "search,detail-2,detail-1"
-   input : resource/test_case_1.csv
+   input : resource/test_case_1.csv sequence count 3    
    status : passed
+   ```
     
